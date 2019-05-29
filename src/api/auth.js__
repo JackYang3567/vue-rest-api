@@ -1,0 +1,36 @@
+
+/**
+ * Created at 2019-04-29
+ * Author: Jack
+ */
+
+const axios = require('axios');
+const {AIP_PREFIX } = require('../../config.json')
+const API_SIGNIN = `${AIP_PREFIX}/user/signin`
+
+ 
+    
+
+  export default {
+    getLoginedUser (reqdata,cb) {
+
+      // axios是response.data里才是数据
+      axios.post(`${API_SIGNIN}`,reqdata)
+      .then(function (res) {
+        // handle success
+        console.log("signin res.data====>",res.data)
+        //res.data.data.rows
+        setTimeout(() => cb(res.data.data), 10)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    }
+  }
+  
+
+ 

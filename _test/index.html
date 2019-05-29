@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>		
+		<meta charset="utf-8" />
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		
+        <title>GK网全国彩票开奖API接口调用平台,Xml,Json免费彩票数据采集API接口试用</title>
+		<meta name="keywords" content="彩票接口,高频彩票接口,彩票API,高频彩票API,时时彩开奖,开奖采集修复,开奖接口,免费API开奖接口,北京赛车pk10开奖修复,腾讯统计,腾讯分分彩开奖结果,GK网,GK网API"></meta>
+		<meta name="description" content="GK网彩票开奖接口(API)是GK网面向网络媒体、彩票行业客户、第三方彩票销售或分析机构等用户，通过web方式提供开奖数据服务的官方平台，提供免费试用功能。是国内专业面向各彩票相关网站、开发人员和彩票分析的彩票开奖API开发接口。"></meta>
+<style>
+    .userinfo{margin-top:15px;}
+    .red{color: red}
+    .layui-form{ margin-top: 30px;}
+.site-idea{margin: 20px 0; font-size: 0; text-align: center; font-weight: 300;}
+.site-idea li{display: inline-block; vertical-align: top; *display: inline; *zoom:1; font-size: 14px; }
+.site-idea li{width: 298px; height: 150px; padding: 30px; line-height: 24px; margin-left: 30px; border: 1px solid #d2d2d2; text-align: left;}
+.site-idea li:first-child{margin-left: 0}
+.site-idea .layui-field-title{border-color: #d2d2d2}
+.site-idea .layui-field-title legend{margin: 0 20px 20px 0; padding: 0 20px; text-align: center;}
+.fr {float: right;}
+@media screen and (max-width: 750px){
+ .site-idea{margin: 20px 0;}
+  .site-idea li{margin: 0 0 20px 0; width: 100%; height: auto; -webkit-box-sizing: border-box !important; -moz-box-sizing: border-box !important; box-sizing: border-box !important;}
+}
+</style>
+
+		<link rel="Shortcut Icon" href="/favicon.ico">
+        <link rel="stylesheet" href="css/layui.css">
+	    <link rel="stylesheet" href="css/font-awesome.min.css" media="all" />  
+        <style type="text/css">
+        html{height:100%;}
+        body{min-height:100%;margin:0;padding:0;position:relative;}
+            .header {height: 59px;border-bottom: 1px solid #404553;background-color: #393D49;}
+            .logo {position: absolute;left: 0;top: 1px;}
+            .header .layui-nav {position: absolute;right: 0;top: 0;padding: 0;background: none;}
+            .logo img {width: 100%;height: 100%;}
+            .alone-banner {height: 120px;text-align: center;font-weight: 300;background-color: #009688;color: #fff;}
+            .alone-banner h1 {padding-top: 30px;line-height: 32px;font-size: 30px;font-weight: 300;}
+            .alone-banner p {padding-top: 20px;color: #e2e2e2;color: rgba(255,255,255,.8);}
+            .jcb-main {padding-bottom:10px; max-width: 1140px;margin: 0 auto;position: relative;}
+            .footer {background-color: #393D49;position:absolute;bottom:0;width:100%;height:auto;padding: 0px 0;line-height: 30px;text-align: center;color: #666;font-weight: 300;margin-top: 50px;}
+            .footer a {padding: 0 5px;}
+            .site-union {margin-top: 10px;color: #999;} 
+			.img-xys {display: inline-block; height: auto; max-width: 100%;}
+        </style>
+	</head> 
+    <body>
+        <div class="container">
+            <!--header begin-->            
+             <div class="header">
+                <div class="jcb-main">
+                    <a class="logo" href="/">
+                    <img src="picture/logo.png" alt="GK网API" style="position:relative; top:5px">
+                    </a>
+                    <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <a href="/"><i class="layui-icon">&#xe68e;</i> 首 页</a>
+                    </li>   
+                    <li class="layui-nav-item">
+                        <a href="/index/lottery.html">开奖历史</a>
+                    </li>   
+                    <li class="layui-nav-item">
+                        <a href="/index/purchase.html">接口购买</a>
+                    </li>   
+                    <li class="layui-nav-item">
+                        <a href="/index/lottery_type.html">免费试用</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/index/show.html">接口说明</a>
+                    </li>   
+                   
+                        
+                        <li class="layui-nav-item">
+                            <a href="/index/login.html" ><i class="layui-icon">&#xe612;</i>登陆/注册</a>
+                        </li>
+                         					
+                    </ul>
+                </div>
+            </div>
+            <!--header end-->  
+            <!--banner begin-->  
+            <div class="alone-banner layui-bg-black">
+                <div class="jcb-main">
+                    <h1>全国彩票开奖数据API接口中心</h1>
+                    <p>GK网API开放平台是GK网面向网络媒体、彩票行业客户、第三方彩票销售或分析机构等用户提供专业权威的开奖数据</p>
+                </div>
+            </div>
+            <!--banner end-->  
+            
+<div style="height:10px;"></div>
+<div class="jcb-main alone-nav"> 
+	<div class="layui-carousel" id="test1" lay-anim="" lay-indicator="none" lay-arrow="hover" style="width: 100%; height: 190px;">
+	  <div carousel-item="">
+	    <div class=""><img src="picture/banner3.png" style="width:100%"></div>
+		<div class="layui-this"><img src="picture/banner.png" style="width:100%"></div>
+		<div class=""><img src="picture/banner2.png" style="width:100%"></div>		 
+	  </div>
+	<div class="layui-carousel-ind"><ul><li class=""></li><li class="layui-this"></li><li class=""></li></ul></div><button class="layui-icon layui-carousel-arrow" lay-type="sub"></button><button class="layui-icon layui-carousel-arrow" lay-type="add"></button></div></div>
+<iframe src="../bbs/default.html" width="100%" height="100%"  frameBorder="0" marginwidth="0" marginheight="0" scrolling="no" style="width:100%;min-height:350px; height:380px; overflow:hidden;border:0px ;margin:10px 0px -0px -0px;"></iframe> 
+<div class="jcb-main alone-nav"> 
+    <ul class="site-idea">
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">专业彩票开奖平台</legend>
+        <p>专业面向彩票行业网站和开发爱好者的彩票开奖服务api数据开发接口。与国内多个彩票中心合作的数据来源，开奖信息更新及时,全面覆盖所有彩种的开奖信息。</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">权威信息来源</legend>
+        <p>开奖数据权威、准确、及时，稳定，与各大网站彩票平台相同的信息发布时效。提供丰富的彩票开奖信息，包括开奖期号、开奖号码、开奖时间等。</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">多平台调用支持</legend>
+        <p>提供Xml与Json两种接口格式，支持web与多平台下各种app应用程序,以及浏览器ajax等web调用方式。</p>
+      </fieldset>
+    </li>
+  </ul>  
+  <ul class="site-idea">
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">海量数据存储</legend>
+        <p>平台采用分布式数据库平台，容纳海量彩票每一期的历史开奖数据。提供99.99%的数据可靠性。</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">高并发访问</legend>
+        <p>平台服务器采用集群架构，并行数据处理引擎，优化了高并发高访问的策略，确保数据稳定，正确。</p>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset class="layui-elem-field layui-field-title">
+        <legend align="center">简洁的接口调用参数</legend>
+        <p>专用的简洁顶级域名，人性化的调用接口参数，访问地址简单好记。提供准确的彩票开奖信息，包括开奖期号、开奖号码、开奖时间等。</p>
+      </fieldset>
+    </li>
+  </ul> 
+<div class="layui-tab layui-tab-card">
+<div class="layui-card-header layui-bg-gray">友情链接<span class="fr"><a href="/index/contact.html" target="_blank"><font color="#666">申请连接</a></span></div>
+<div class="layui-card-body">
+<span class="layui-breadcrumb" lay-separator="|">
+<a href="">GKapi开奖网</a><a href="">GK开奖网</a><a href="">重庆API接口</a><a href="">广东开奖结果</a><a href="">香港api开奖</a><a href="">北京采集API</a><a href="">开奖接口</a><a href="http://www.baidu.com/" target="_blank">百度一下</a>
+<a href="https://www.so.com/" target="_blank">360搜索</a>
+<a href="https://www.sogou.com/" target="_blank">搜狗搜索</a>
+</span></div></div></div></div></br>
+
+            <!--footer begin--><br><br><br><br>
+            <div class="layui-footer footer footer-index">
+                <div class="jcb-main">
+                    <p>
+                    <a href="/index/about.html"><font color="#C0C0C0">关于我们</a>
+                    <a href="/index/problem.html"><font color="#C0C0C0">常见问题</a>
+                    <a href="/index/show.html"><font color="#C0C0C0">接口概述</a>
+                   <a href="/index/lottery_type.html"><font color="#C0C0C0">免费试用</a>
+                    <a href="/index/contact.html" ><font color="#C0C0C0">联系我们</a>
+					
+                    </p>
+                    <p><font color="#C0C0C0">CopyRight © 2010-2019 GK网 <a href="http://www.miibeian.gov.cn" target="_blank"><font color="#C0C0C0">蜀ICP备17033890号</a>服务范围：本站仅提供彩票数据查询相关服务，无投注购彩业务。</p>
+                    <p class="site-union">
+                    
+                   
+                    </p>
+                </div>
+            </div>
+            <!--footer end-->            
+        </div>
+    </body> 
+     <script src="js/layui.js" charset="utf-8"></script> 
+	<script src="js/jquery.min.js" charset="utf-8"></script>
+	<script src="js/jquery.extend.js" charset="utf-8"></script>	 
+    <script type="text/javascript">
+        var table,form,laydate; 
+        layui.use(['form', 'table', 'laydate'], function(){
+            table = layui.table;form = layui.form;laydate = layui.laydate;  
+        });
+    </script>
+    
+
+<script>
+    layui.use(['form','upload', 'layedit','table', 'laydate','element','carousel'], function(){
+        var form = layui.form,layer = layui.layer,layedit = layui.layedit
+         ,laydate = layui.laydate,upload = layui.upload,element = layui.element,table = layui.table;
+		var carousel = layui.carousel;		
+		carousel.render({elem: '#test1',width: '100%',height:'190px',arrow: 'hover',indicator: 'none'});
+    });
+</script>
+
+<script src="js/default.js"></script>
+</html>
+ 
