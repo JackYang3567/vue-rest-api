@@ -21,7 +21,7 @@
             <tr>
                 <td>付费接口网址</td>
                 <td colspan="3">
-                   <b>http://api.b1api.com/api?p=<high>[返回格式]</high>&t=
+                   <b>http://www.4298.cc/api?p=<high>[返回格式]</high>&t=
                    <high>[彩票代码]</high>&limit=<high>[返回行数]</high>&token=
                    <high>[接口密钥]</high></b>
                 </td>
@@ -45,10 +45,10 @@
         <tr><td><b>[返回行数]</b></td><td>选填</td><td>不填时默认返回1行数据，如果需要返回不同的行数时填写，范围从1行到20行，</td><td>填写1-20均可,最多只返回20条</td></tr> <tr><td>
         <b>[接口密钥]</b></td><td>必填</td><td>你购买的账户接口密钥，注：接口密钥不区分大小写，<br/></td><td>97ea1teb952bv903</td></tr>
         <tr><td>付费接口例程</td>
-        <td colspan="2"><b>http://api.b1api.com/api?p=<high>xml</high>&t=<high>cqssc</high>&limit=<high>1</high>&token=<high>123</high></b>(重庆时时彩xml格式1行utf-8编码)<br/>
-        <b>http://api.b1api.com/api?p=<high>json</high>&t=<high>cqssc</high>&limit=<high>3</high>&token=<high>123</high></b>(重庆时时彩json格式3行utf-8编码)<br/>
-        <b>http://api.b1api.com/api?p=<high>json</high>&t=<high>cqssc</high>&limit=<high>5</high>&token=<high>123</high></b>(重庆时时彩json格式5行utf-8编码)<br/>
-        <b>http://api.b1api.com/api?p=<high>xml</high>&t=<high>cqssc</high>&token=<high>123</high>&date=<high>20160516</high></b>(重庆时时彩xml格式返回20160516当天所有数据)<br/></td>
+        <td colspan="2"><b>http://www.4298.cc/api?p=<high>xml</high>&t=<high>cqssc</high>&limit=<high>1</high>&token=<high>123</high></b>(重庆时时彩xml格式1行utf-8编码)<br/>
+        <b>http://www.4298.cc/api?p=<high>json</high>&t=<high>cqssc</high>&limit=<high>3</high>&token=<high>123</high></b>(重庆时时彩json格式3行utf-8编码)<br/>
+        <b>http://www.4298.cc/api?p=<high>json</high>&t=<high>cqssc</high>&limit=<high>5</high>&token=<high>123</high></b>(重庆时时彩json格式5行utf-8编码)<br/>
+        <b>http://www.4298.cc/api?p=<high>xml</high>&t=<high>cqssc</high>&token=<high>123</high>&date=<high>20160516</high></b>(重庆时时彩xml格式返回20160516当天所有数据)<br/></td>
         <td>注：所有参数不区别大小写</td></tr></table> 
         
         <div style="margin:0px 0px 10px 20px"><div style="display:none"></div> 
