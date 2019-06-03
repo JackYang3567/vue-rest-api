@@ -9,6 +9,7 @@ import sliders from './modules/slider'
 import users from './modules/users'
 import lotterytype from './modules/lotterytype'
 import lottery from './modules/lottery'
+import payamount from './modules/payamount'
 import createLogger from '../plugins/logger'
 
 Vue.use(Vuex)
@@ -23,7 +24,8 @@ export default new Vuex.Store({
     sliders,
     users,
     lotterytype,
-    lottery
+    lottery,
+    payamount
   },
   strict: debug,
   plugins: debug ? [createLogger()] : []

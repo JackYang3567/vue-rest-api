@@ -17,6 +17,47 @@
                     </thead>
                     <tbody id="test2"></tbody>
                 </table>
+                <div class="layui-card-body">
+	<table class="layui-table text-display" lay-skin="line" id="hist-body" style="display: table;">
+		<thead>
+		<tr>
+			<td><button class="layui-btn layui-btn-normal layui-btn-xs btn-add" @click="createToken()"><i class="layui-icon"></i>创建</button></td>
+			<td>&emsp;&emsp;账号TOKEN</td>
+			<td>&emsp;&emsp;&emsp;创建时间</td>
+			<td>&emsp;&emsp;&emsp;常用功能</td>
+			<td>&emsp;状态</td>
+			<td>备注<span style="color:#ac2925">(点击可修改)</span></td>
+		</tr>
+		</thead>
+		<tbody id="test2">
+			<tr class="table-text" data-sign="1269">
+				<td><button class="layui-btn layui-btn-warm layui-btn-xs btn-edit"><i class="layui-icon"></i>变更</button></td>
+				<td class="text-token">6353688DD4C33AA3</td><td>2019-02-28 01:14:08</td>
+				<td>
+					<a href="/index/purchase.html" title="购买和续费"><i class="layui-icon"></i> 购买</a> 
+					<a href="/main/role.html?token=6353688DD4C33AA3" class="mr3" title="访问接口生成面板"><i class="layui-icon" style="color:red"></i><b style="color:red">接口面板</b></a>
+				</td>
+				<td><span class="layui-badge layui-bg-blue">正在使用</span></td>
+				<td class="pointer text-descr" title="点击可以修改"><span class="btn-edit-descr">默认接口账号</span></td>
+			</tr>
+			<tr class="table-text" data-sign="152276">
+				<td><button class="layui-btn layui-btn-danger layui-btn-xs btn-del"><i class="layui-icon"></i>删除</button></td>
+				<td class="text-token">B3CEBA8E2F6BEC0F</td><td>2019-05-15 12:56:29</td>
+				<td><a href="/index/purchase.html" title="购买和续费"><i class="layui-icon"></i> 购买</a></td>
+				<td><span class="layui-badge-rim">等待使用</span></td>
+				<td class="pointer text-descr" title="点击可以修改"><span class="btn-edit-descr">默认接口账号</span></td>
+			</tr>
+			<tr class="table-text" data-sign="152280">
+				<td><button class="layui-btn layui-btn-danger layui-btn-xs btn-del"><i class="layui-icon"></i>删除</button></td>
+				<td class="text-token">D90A0703F7E4DF51</td><td>2019-05-15 14:03:48</td>
+				<td><a href="/index/purchase.html" title="购买和续费"><i class="layui-icon"></i> 购买</a></td>
+				<td><span class="layui-badge-rim">等待使用</span></td>
+				<td class="pointer text-descr" title="点击可以修改"><span class="btn-edit-descr">默认接口账号</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="text-loding" id="data" style="display: none;">没有接口账号，请点击左上角“创建”</div>
+</div>
                 <div class="text-loding" id="data">正在刷新接口账号信息...</div>
             </div>
         </div>
@@ -38,3 +79,66 @@
     </div>
   </div>
 </template>
+<script>
+// import { mapState, mapActions, mapMutations } from 'vuex'
+import {AIP} from '../../../config.json'
+const _API = `${AIP}/accesstoken/index.php/AccessToken/Add`
+import axios from 'axios';
+let self = this;
+
+export default {
+ data () {
+    return {
+      error: false,  
+      error_message: '',
+      userInfo: this.$store.state.auth.userInfo,    
+      createFormData: { type: 1, },
+      myTokens:[],
+      current:0, 
+    }
+  }, /*
+  computed: {
+     
+      ...mapState({
+        lotterytypes: state => state.lotterytype.lotterytypes,
+        lotterys: state => state.lottery.lotterys,
+    }),
+    
+  },*/
+  created () {
+      /*
+    this.$store.dispatch('lotterytype/getAllLotterytypes')
+    this.$store.dispatch('lottery/getAllLotteries')
+    */
+    self = this;
+  },
+  methods: {
+    createToken: function () { 
+        this.createFormData.uuid = this.userInfo.uuid
+        alert(`${_API}`)
+        let formData = JSON.stringify(this.createFormData);
+         alert(formData)
+        
+         return axios.post(`${_API}`, this.createFormData)
+          .then(function (res) {
+            // handle success
+             console.log("createFormData===res.data.====>",res.data)   
+            if(res.data.success){
+             console.log("createFormData===res.data.====>",res.data.data)
+            
+            }else{
+             
+              console.log("res.data.data==error_message==")
+            }  
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+    }
+ } 
+}
+</script>

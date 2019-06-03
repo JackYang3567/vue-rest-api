@@ -41,7 +41,7 @@ const router = new Router({
         {
           // 当 /dashboard/:id/changepass 匹配成功，
           // Changepass 个人资料 会被渲染在 Dashboard 的 <router-view> 中
-          path: '/dashboard',
+          path: '/dashboard/',
           name: 'dashboard',
           component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard/Changepass.vue'),
           meta: {
@@ -52,7 +52,7 @@ const router = new Router({
         {
           // 当 /Dashboar/:id/token 匹配成功
           // Token 接口管理 会被渲染在 Dashboard 的 <router-view> 中
-          path: 'token',
+          path: '/dashboard/token',
           name: 'token',
           component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard/Token.vue'),
           meta: {
@@ -63,7 +63,7 @@ const router = new Router({
         {
           // 当 /Dashboar/:id/profile 匹配成功
           // Profile 资料修改 会被渲染在 Dashboard 的 <router-view> 中
-          path: 'profile',
+          path: '/dashboard/profile',
           name: 'profile',
           component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard/Profile.vue'),
           meta: {
@@ -117,6 +117,28 @@ const router = new Router({
           }
         }
       ]
+    },    
+    {
+      // 当 /Dashboar/:id/recharge 匹配成功
+      // Recharge 在线充值 会被渲染在 Dashboard 的 <router-view> 中
+      path: '/renewals',
+      name: 'renewals',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Renewals.vue'),
+      meta: {
+        requiresAuth: true,
+        title: '购买续费'
+      }
+    },
+    {
+      // 当 /Dashboar/:id/recharge 匹配成功
+      // Recharge 在线充值 会被渲染在 Dashboard 的 <router-view> 中
+      path: '/history',
+      name: 'history',
+      component: () => import(/* webpackChunkName: "history" */ '../views/History.vue'),
+      meta: {
+        requiresAuth: true,
+        title: '彩票开奖历史'
+      }
     },
     {
       path: '/about',

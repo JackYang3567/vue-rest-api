@@ -37,18 +37,18 @@
                         <table cellspacing="0" cellpadding="0" border="0" class="layui-table" lay-skin="line">
                             <tbody>
                                 <tr data-index="0" class=""  v-for="(lottery, index) in curHistorys" >
-                                    <td data-field="name" data-key="1-0-0" align="center" :data-content="lottery.name" class="">
+                                    <td :style="{width:'170px'}" data-field="name" data-key="1-0-0" align="center" :data-content="lottery.name" class="">
                                         <div class="layui-table-cell laytable-cell-1-0-0"> 
                                             <a href="/history/hljssc.html" class="layui-table-link">{{lottery.name}}</a> 
                                         </div>
                                     </td>
-                                    <td data-field="qh" data-key="1-0-1" align="center" class="">
+                                    <td :style="{width:'130px'}" data-field="qh" data-key="1-0-1" align="center" class="">
                                         <div class="layui-table-cell laytable-cell-1-0-1">{{lottery.expect}}</div>
                                     </td>
-                                    <td data-field="opentime" data-key="1-0-2" align="center" class="">
+                                    <td :style="{width:'160px'}" data-field="opentime" data-key="1-0-2" align="center" class="">
                                         <div class="layui-table-cell laytable-cell-1-0-2">{{lottery.time}}</div>
                                     </td>
-                                    <td data-field="num" data-key="1-0-3" align="left" data-off="true" class="">
+                                    <td :style="{width:'260px'}" data-field="num" data-key="1-0-3" align="left" data-off="true" class="">
                                         <div class="layui-table-cell laytable-cell-1-0-3"> 
                                             <div class="open-ball my_webfont">
                                                 <span class="ball" v-for=" itcode in lottery.code">{{itcode}}</span>
@@ -56,15 +56,15 @@
                                         </div> 
                                         </div>
                                     </td>
-                                    <td data-field="4" data-key="1-0-4" align="right" data-off="true" class="layui-table-col-special">
+                                    <td :style="{width:'260px'}" data-field="4" data-key="1-0-4" align="right" data-off="true" class="layui-table-col-special">
                                         <div class="layui-table-cell laytable-cell-1-0-4"> 
                                             <a class="layui-btn layui-btn-sm layui-btn-primary" lay-event="more">
                                                 <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
                                             </a> 
-                                            <a class="layui-btn layui-btn-sm layui-btn-normal" href="/index/lottery_type.html">试用</a> 
-                                            <a class="layui-btn layui-btn-sm layui-btn-normal" href="/history/hljssc.html">
+                                            <router-link class="layui-btn layui-btn-sm layui-btn-normal" :to="{name:'trial'}">试用</router-link> 
+                                            <router-link class="layui-btn layui-btn-sm layui-btn-normal" :to="{name:'history'}">
                                                 <i class="layui-icon"></i>历史
-                                            </a> 
+                                            </router-link> 
                                         </div>
                                     </td>
                                 </tr>                               
@@ -82,9 +82,7 @@
 import { mapState, mapActions, mapMutations } from 'vuex'
 import {AIP, AIP_PREFIX, FREE_CAPTCHA} from '../../config.json'
 const _API = `${AIP}/lotteryhistory/index.php/Lotteryhistory`
-
 import axios from 'axios';
-
 let self = this;
 
 export default {
@@ -119,7 +117,8 @@ export default {
          this.curHistorys=[]
        
           this.curLotterys.map((item) => {
-           axios.get(`${_API}?type=${item.code}&time=0`)
+            //  alert(`${_API}?type=${item.code}&range=0&time=0`)
+           axios.get(`${_API}?type=${item.code}&range=0&time=0`)
           .then(function (res) {
             // handle success
              console.log("getFreeApi===res.data.====>",res.data)   
