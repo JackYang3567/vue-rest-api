@@ -4713,6 +4713,11 @@ joi@^14.3.0:
     isemail "3.x.x"
     topo "3.x.x"
 
+jquery@^3.1.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+
 js-base64@^2.1.8:
   version "2.5.1"
   resolved "http://registry.npm.taobao.org/js-base64/download/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
@@ -4892,6 +4897,13 @@ laydate@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/laydate/-/laydate-1.0.7.tgz#2431004fc9721a85fd04418fa1950c2632e2baca"
   integrity sha1-JDEAT8lyGoX9BEGPoZUMJjLiuso=
+
+layui-layer@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/layui-layer/-/layui-layer-1.0.9.tgz#b78d9d73aa8e9c31465141c4c6da3250e6a208e8"
+  integrity sha1-t42dc6qOnDFGUUHExtoyUOaiCOg=
+  dependencies:
+    jquery "^3.1.1"
 
 lcid@^1.0.0:
   version "1.0.0"

@@ -159,7 +159,7 @@ export default {
       curLotterys:[],
       lotterysHistory:[],
       currentLotteryTypeId: 0,
-      lotteryFormData:{code:''},
+      lotteryFormData:{code:'',},
       current:0,  
       currentLottery:0,    
       isActiveType: false,
@@ -173,9 +173,13 @@ export default {
           {title:"前天",date:-2},
       ],
       currentDay: 0,
-     
-      
     }
+  },  
+  beforeRouteEnter (to, from, next) {
+      next(vm => {
+          vm.currentLotteryTypeId = to.params.type_id
+          vm.getLotteyHistory(to.params)
+     })    
   },
   computed: {
      ... mapState({
@@ -186,6 +190,7 @@ export default {
     
   },
   created () {
+    
     this.$store.dispatch('lotterytype/getAllLotterytypes')
     this.$store.dispatch('lottery/getAllLotteries')
     this.lotteryFormData = {code:'', time: this.dateTime(0) }
@@ -232,7 +237,7 @@ export default {
          this.$refs.lottery.setAttribute("class","layui-unselect layui-form-select")
           console.log('lotteryFormData 111====', this.lotteryFormData )    
         let formData = JSON.stringify(this.lotteryFormData);   
-          alert(formData) 
+         // alert(formData) 
           this.getLotteyHistory(this.lotteryFormData)
          
     },
@@ -241,9 +246,9 @@ export default {
          this.currentDay = index
          let ele = event.currentTarget
          this.lotteryFormData.time = ele.attributes['data-date'].value.trim()
-         console.log('lotteryFormData 222====', this.lotteryFormData )   
+        //  console.log('lotteryFormData 222====', this.lotteryFormData )   
          let formData = JSON.stringify(this.lotteryFormData);  
-         alert(formData) 
+        // alert(formData) 
          this.getLotteyHistory(this.lotteryFormData)
     },
     getDayTime: function (temDay)  {
@@ -270,20 +275,21 @@ export default {
      },
      getLotteyHistory: function (formData) {
          this.lotterysHistory = []
-           // alert(`${_API}?type=${formData.code}&range=1&time=${formData.time}`)
+          
+           // alert(`${_API}?type=${formData.code}&range=1&time=${formData.time}&split=1440`)
            // this.curLotterys.map((item) => {
-                axios.get(`${_API}?type=${formData.code}&range=1&time=${formData.time}`)
+                axios.get(`${_API}?type=${formData.code}&range=1&time=${formData.time}&split=1440`)
           .then(function (res) {
             // handle success
             // console.log("History 111===res.data.====>",res.data)   
             if(res.data.success){           
              let rows = res.data.data.rows
-           console.log("History 222===res.data.data.rows====>",rows)
+              // console.log("History 222===res.data.data.rows====>",rows)
              let _rows = rows.filter(lottery => formData.time===self.getDayTime(lottery.time))
               _rows.map((i) => {
                 let  code_k3 = [19, 22, 31, 35, 36, 37, 38, 39, 43, 44, 45, 47, 80, 81, 82, 153, ]
                 let _item = new Object
-                _item.name =  self.curLotteryName
+                _item.name =  formData.name || self.curLotteryName
                 _item.expect = i.expect
                 _item.code = i.code.split(',')
                 _item.time = i.time

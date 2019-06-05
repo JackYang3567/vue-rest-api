@@ -76,6 +76,9 @@ export default {
     // this.$store.dispatch('users/getAllUsers')
      self = this;
   },
+   mounted () {
+     document.getElementById('tag_1').setAttribute("class","")
+  },
   methods: {
       ...mapMutations('auth',[ 'Login' ]),
       chageInfo: function () {

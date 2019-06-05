@@ -75,6 +75,7 @@
 </template>
 <script>
 
+import layer from 'layui-layer'
 import { mapState, mapMutations } from 'vuex'
 import { AIP, SIGNIN_CAPTCHA } from '../../config.json'
 import axios from 'axios'
@@ -94,6 +95,7 @@ export default {
     // users: state => state.users.users
   }),
   created () {
+  
     // this.$store.dispatch('users/getAllUsers')
     self = this
   },
@@ -106,7 +108,7 @@ export default {
       return axios.post(`${_API}`, this.signinFormData)
         .then(function (res) {
           // handle success
-          // console.log("API ===res.data.data====>",res.data)
+          let opt = new Object; 
           // resUsers = res.data.data.rows;
           if (res.data.success) {
             self.Login(res.data.data)
@@ -115,7 +117,9 @@ export default {
           } else {
             self.error = !res.data.success
             self.error_message = res.data.error_message
-            // console.log("res.data.data====",res.data.error_message)
+            opt.icon = 5
+            opt.time = 2000;
+            layer.msg(res.data.error_message,opt)
           }
         }).catch(function (error) {
           // handle error

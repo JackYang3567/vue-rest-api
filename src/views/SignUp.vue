@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import layer from 'layui-layer'
 import { mapState, mapActions, mapMutations } from 'vuex'
 import {AIP,SIGNUP_CAPTCHA} from '../../config.json'
 import axios from 'axios';
@@ -125,14 +126,14 @@ export default {
      ...mapMutations('auth',[ 'Login' ]),
     
     signUp: function () { 
-       let formData = JSON.stringify(this.signupFormData);
+     //  let formData = JSON.stringify(this.signupFormData);
       console.log("signupFormData===",this.signupFormData)
-         alert('signin==='+ formData )
-        alert("API=======>"+_API)
+      //   alert('signin==='+ formData )
+      //  alert("API=======>"+_API)
       axios.post(`${_API}`,this.signupFormData)
         .then(function (res) {
           // handle success
-         console.log("res.====",res.data)
+        let opt = new Object; 
           if(res.data.success){
              console.log("res.data.data====",res.data.data)
               res.data.data.created_at = res.data.data.signinTime
@@ -141,7 +142,9 @@ export default {
             }else{
               self.error = !res.data.success
               self.error_message = res.data.error_message
-              console.log("res.data.data====",res.data.error_message)
+              opt.icon = 5
+              opt.time = 2000;
+              layer.msg(res.data.error_message,opt)
             }      
         })
         .catch(function (error) {

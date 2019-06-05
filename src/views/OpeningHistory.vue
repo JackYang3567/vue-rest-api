@@ -36,6 +36,7 @@
                     <div class="layui-table-body layui-table-main">
                         <table cellspacing="0" cellpadding="0" border="0" class="layui-table" lay-skin="line">
                             <tbody>
+                               
                                 <tr data-index="0" class=""  v-for="(lottery, index) in curHistorys" >
                                     <td :style="{width:'170px'}" data-field="name" data-key="1-0-0" align="center" :data-content="lottery.name" class="">
                                         <div class="layui-table-cell laytable-cell-1-0-0"> 
@@ -62,7 +63,8 @@
                                                 <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
                                             </a> 
                                             <router-link class="layui-btn layui-btn-sm layui-btn-normal" :to="{name:'trial'}">试用</router-link> 
-                                            <router-link class="layui-btn layui-btn-sm layui-btn-normal" :to="{name:'history'}">
+                                            <router-link class="layui-btn layui-btn-sm layui-btn-normal" :to="{name:'history',
+                                            params:{type_id:lottery.type_id,name:lottery.name,code:lottery.type,range:1,time:'2019-06-05',split:1440}}">
                                                 <i class="layui-icon"></i>历史
                                             </router-link> 
                                         </div>
@@ -121,14 +123,16 @@ export default {
            axios.get(`${_API}?type=${item.code}&range=0&time=0`)
           .then(function (res) {
             // handle success
-             console.log("getFreeApi===res.data.====>",res.data)   
+           
             if(res.data.success){
-             console.log("getFreeApi===res.data.====>",res.data.data)
+             console.log("get Historys===res.data.====>",res.data.data)
              let _item = new Object
               _item.name = item.name
+              _item.type_id = typeId
               _item.expect = res.data.data.expect
               _item.code = res.data.data.code.split(',')
               _item.time = res.data.data.time
+              _item.type = res.data.data.type
               self.curHistorys.push(_item)
             }else{
              

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from 'vuex'
 export default {
  name: 'Dashboard',
   data () {
@@ -33,8 +34,14 @@ export default {
       userInfo: this.$store.state.auth.userInfo
     }
   },
+  computed: {
+      ...mapState({
+         accesstokens: state => state.accesstoken.accesstokens     
+    }),
+   
+  },
   created () {
-    
+     this.$store.dispatch('accesstoken/getAllAccesstokens')
     self = this;
   },
   

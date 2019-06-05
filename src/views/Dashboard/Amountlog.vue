@@ -33,3 +33,22 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+ name: 'Amountlog',
+  data () {
+    return {
+      current: 0,
+      userInfo: this.$store.state.auth.userInfo
+    }
+  },
+  created () {
+    
+    self = this;
+	},
+	mounted () {
+		document.getElementById('tag_class').setAttribute("class","layui-this")
+	},
+  
+}
+</script>

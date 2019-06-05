@@ -9,13 +9,13 @@
             <i class="layui-icon">&#xe65e;</i>  立即充值</router-link> &nbsp;&nbsp; 最后登陆时间:<B><span class="red">{{userInfo.signinTime}}</span> </B> </blockquote>
     </div>
     <ul class="layui-tab-title">
-        <router-link :to="{name:'dashboard'}" id="tag_1" tag="li" ><a>个人资料</a></router-link>
-        <router-link :to="{name:'token'}" tag="li" ><a>接口管理</a></router-link>
-        <router-link :to="{name:'profile'}" tag="li" ><a>资料修改</a></router-link>
-        <router-link :to="{name:'buylog'}" tag="li" ><a>购买记录</a></router-link>
-        <router-link :to="{name:'purchaselog'}" tag="li" ><a>充值记录</a></router-link>
-        <router-link :to="{name:'amountlog'}" tag="li" ><a>资金变动记录</a></router-link>
-	    <router-link :to="{name:'recharge'}" tag="li" ><a>购买续费</a></router-link>
+        <router-link :to="{name:'dashboard'}"  tag="li" active-class="layui-this"><a>个人资料</a></router-link>
+        <router-link :to="{name:'token'}" tag="li" active-class="layui-this"><a>接口管理</a></router-link>
+        <router-link :to="{name:'profile'}" tag="li" active-class="layui-this"><a>资料修改</a></router-link>
+        <router-link :to="{name:'buylog'}" tag="li" active-class="layui-this"><a>购买记录</a></router-link>
+        <router-link :to="{name:'purchaselog'}" tag="li" active-class="layui-this"><a>充值记录</a></router-link>
+        <router-link :to="{name:'amountlog'}" tag="li" active-class="layui-this" ><a>资金变动记录</a></router-link>
+	      <router-link :to="{name:'recharge'}" tag="li" id="tag_class" active-class="layui-this" ><a>购买续费</a></router-link>
       
     </ul>
     <div class="layui-tab layui-tab-card">
@@ -74,17 +74,26 @@
 
 <script>
 export default {
- name: 'Dashboard',
+ name: 'Renewals',
   data () {
     return {
       current: 0,
       userInfo: this.$store.state.auth.userInfo
     }
+	}, 
+	beforeRouteEnter (to, from, next) {
+   console.log("to====111===",to)
+  
+   next()
   },
   created () {
-    
+    document.getElementById('tag_class').setAttribute("class","layui-this")
     self = this;
-  },
+	},
+	mounted () {
+		document.getElementById('tag_1').setAttribute("class","")
+		document.getElementById('tag_class').setAttribute("class","layui-this")
+	},
   
 }
 </script>

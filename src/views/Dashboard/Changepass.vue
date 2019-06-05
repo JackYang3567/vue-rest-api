@@ -99,6 +99,7 @@ export default {
       infoFormData: {mode:'pass', uuid:this.$store.state.auth.userInfo.uuid}, 
     }
   },
+  
   created () {
     // this.$store.dispatch('users/getAllUsers')
      self = this;

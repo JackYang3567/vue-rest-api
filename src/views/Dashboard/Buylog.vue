@@ -34,3 +34,22 @@
 
   </div>
 </template>
+<script>
+export default {
+ name: 'Buylog',
+  data () {
+    return {
+      current: 0,
+      userInfo: this.$store.state.auth.userInfo
+    }
+  },
+  created () {
+    
+    self = this;
+	},
+	mounted () {
+		document.getElementById('tag_1').setAttribute("class","")
+	},
+  
+}
+</script>

@@ -115,18 +115,39 @@ const router = new Router({
             requiresAuth: true,
             title: '在线充值'
           }
+        },
+        {
+          // Alipay 在线充值  <router-view> 中
+          path: 'alipay',
+          name: 'alipay',
+          component: () => import(/* webpackChunkName: "Alipay" */ '../views/Dashboard/Alipay.vue'),
+          meta: {
+            requiresAuth: true,
+            title: '支付'
+            }
         }
       ]
-    },    
+    }, 
     {
-      // 当 /Dashboar/:id/recharge 匹配成功
-      // Recharge 在线充值 会被渲染在 Dashboard 的 <router-view> 中
+      // 当 /Dashboar/:id/renewals 匹配成功
+      // Renewals 购买续费 会被渲染在 Dashboard 的 <router-view> 中
       path: '/renewals',
       name: 'renewals',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Renewals.vue'),
+      component: () => import(/* webpackChunkName: "renewals" */ '../views/Renewals.vue'),
       meta: {
         requiresAuth: true,
         title: '购买续费'
+      }
+    },  
+    {
+      // 当 /Dashboar/:id/authinterface 匹配成功
+      // Authinterface 授权接口 会被渲染在 Dashboard 的 <router-view> 中
+      path: '/authorized-interface',
+      name: 'authinterface',
+      component: () => import(/* webpackChunkName: "authinterface" */ '../views/Authinterface.vue'),
+      meta: {
+        requiresAuth: true,
+        title: '授权接口'
       }
     },
     {
@@ -136,7 +157,7 @@ const router = new Router({
       name: 'history',
       component: () => import(/* webpackChunkName: "history" */ '../views/History.vue'),
       meta: {
-        requiresAuth: true,
+      
         title: '彩票开奖历史'
       }
     },
