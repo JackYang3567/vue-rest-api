@@ -25,6 +25,15 @@ const router = new Router({
       }
     },
     {
+      path: '/getmsg',
+      name: 'getmsg', // 命名路由
+      component: () => import(/* webpackChunkName: "GetMsg" */ '../views/GetMsg.vue'),
+      meta: {
+        // requiresAuth: true,
+        title: '消息推送'
+      }
+    },
+    {
       path: '/a',
       redirect: '/b'
       // 重定向:   从 /a 重定向到 /b

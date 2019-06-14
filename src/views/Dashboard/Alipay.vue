@@ -48,7 +48,7 @@
                 </div>
                 <div class="m_at">
                     <span>转账时间</span>
-                    <input type="text" class="select_ipt"  name="time" id="time" placeholder="(输入您转账时的时间，如2019-06-05 12:30:22)" onkeyup="value=this.value.replace(/\D+/g,'')">
+                    <input type="text" class="select_ipt"  name="time" id="time" placeholder="(输入您转账时的时间，如2019-06-05 12:30:22)" >
                     <span class="copy_color"><a href="javascript:;" @click="copyInputText('time')">复制</a> </span>
                 </div>
 
@@ -81,7 +81,7 @@ import { mapState, mapMutations } from 'vuex'
 import { AIP } from '../../../config.json'
 import axios from 'axios'
 
-const _API = `${AIP}/member/index.php/Member/Signin`
+const _API = `${AIP}/payment/index.php/Payment/Add`
 let self = this
 export default {
   data () {
@@ -159,8 +159,27 @@ export default {
         if(!ret){
             layer.msg(msg,opt)
         } else {
-            let formData = JSON.stringify(this.payFormData);  
-             alert(formData) 
+           // let formData = JSON.stringify(this.payFormData);  
+            // alert(formData)
+              return axios.post(`${_API}`, this.payFormData)
+                .then(function (res) {
+                // handle success
+               
+                console.log( "====111===res.data===",res.data)
+                if (res.data.success) {
+                     opt.icon = 1
+                      opt.time = 2000;
+                    layer.msg('充值成功！',opt)
+                } else {
+                    opt.time = 2000;
+                    layer.msg(res.data.error_message,opt)
+                }
+                }).catch(function (error) {
+                // handle error
+                console.log(error)
+                }).then(function () {
+                // always executed
+                }) 
         }
       
      

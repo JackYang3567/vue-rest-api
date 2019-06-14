@@ -13,7 +13,7 @@ import payamount from './modules/payamount'
 import paymethod from './modules/paymethod'
 import accesstoken from './modules/accesstoken'
 import createLogger from '../plugins/logger'
-
+import message from './modules/message'
 
 Vue.use(Vuex)
 
@@ -30,7 +30,8 @@ export default new Vuex.Store({
     lottery,
     payamount,
     paymethod,
-    accesstoken
+    accesstoken,
+    message
   },
   strict: debug,
   plugins: debug ? [createLogger()] : []
